@@ -1,0 +1,13 @@
+G:\_GIT\Atlant\Atlant.Dal\bin\Debug\Atlant.Dal.dll.config
+G:\_GIT\Atlant\Atlant.Dal\bin\Debug\Atlant.Dal.dll
+G:\_GIT\Atlant\Atlant.Dal\bin\Debug\Atlant.Dal.pdb
+G:\_GIT\Atlant\Atlant.Dal\bin\Debug\EntityFramework.dll
+G:\_GIT\Atlant\Atlant.Dal\bin\Debug\EntityFramework.SqlServer.dll
+G:\_GIT\Atlant\Atlant.Dal\bin\Debug\EntityFramework.xml
+G:\_GIT\Atlant\Atlant.Dal\bin\Debug\EntityFramework.SqlServer.xml
+G:\_GIT\Atlant\Atlant.Dal\bin\Debug\ru\EntityFramework.resources.dll
+G:\_GIT\Atlant\Atlant.Dal\obj\Debug\Atlant.Dal.csprojResolveAssemblyReference.cache
+G:\_GIT\Atlant\Atlant.Dal\obj\Debug\Atlant.Dal.dll
+G:\_GIT\Atlant\Atlant.Dal\obj\Debug\Atlant.Dal.pdb
+G:\_GIT\Atlant\Atlant.Dal\obj\Debug\Atlant.Dal.Migrations.InitialDB.resources
+G:\_GIT\Atlant\Atlant.Dal\obj\Debug\Atlant.Dal.csproj.GenerateResource.Cache

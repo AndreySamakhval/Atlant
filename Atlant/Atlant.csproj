@@ -136,6 +136,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Index.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -146,6 +148,9 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\_bootstrap-datetimepicker.less" />
+    <Content Include="Content\bootstrap-datetimepicker-build.less" />
+    <Content Include="Scripts\Index.js" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
@@ -221,13 +226,12 @@
     <Content Include="Content\bootstrap\bootstrap.less" />
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
-    <Content Include="Content\_bootstrap-datetimepicker.less" />
-    <Content Include="Content\bootstrap-datetimepicker-build.less" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-3.1.1-vsdoc.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
@@ -241,6 +245,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\moment-with-locales.min.js" />
     <Content Include="Scripts\moment.js" />
@@ -250,6 +255,8 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Api\DetailController.cs" />
+    <Compile Include="Controllers\Api\StorekeeperController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -261,6 +268,10 @@
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\ShowFormDetail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -270,12 +281,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Atlant.Bll\Atlant.Bll.csproj">
       <Project>{e61ff891-a7a6-488a-9a87-3a401d31cfdb}</Project>
       <Name>Atlant.Bll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Atlant.Dependency\Atlant.Dependency.csproj">
+      <Project>{C4BBE3DA-6430-4E15-ADAE-04D7EEF26597}</Project>
+      <Name>Atlant.Dependency</Name>
     </ProjectReference>
     <ProjectReference Include="..\Atlant.ViewModels\Atlant.ViewModels.csproj">
       <Project>{fb9d37f1-8114-493f-b32c-d601fdc5c05b}</Project>

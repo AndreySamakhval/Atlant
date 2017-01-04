@@ -26,8 +26,8 @@ namespace Atlant.Dal
         [Required]
         public DateTime DateAdded { get; set; }//дата добовления
 
-        
-        public int  StorekeeperId { get; set; }//кладовщик
+        [Required]
+        public virtual Storekeeper  Storekeeper { get; set; }//кладовщик
 
 
     }

@@ -8,10 +8,12 @@ namespace Atlant.Dal
     public partial class AtlantContext : DbContext
     {
         public AtlantContext()
-            : base("name=AtlantContext")
+            : base("name=AtlantDBContext")
         {
         }
 
+        public virtual DbSet<Detail> Details { get; set; }
+        public virtual DbSet<Storekeeper> Storekeepers { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

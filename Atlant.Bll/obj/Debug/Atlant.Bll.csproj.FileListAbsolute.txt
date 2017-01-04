@@ -1,0 +1,17 @@
+G:\_GIT\Atlant\Atlant.Bll\bin\Debug\Atlant.Bll.dll.config
+G:\_GIT\Atlant\Atlant.Bll\bin\Debug\Atlant.Bll.dll
+G:\_GIT\Atlant\Atlant.Bll\bin\Debug\Atlant.Bll.pdb
+G:\_GIT\Atlant\Atlant.Bll\bin\Debug\Atlant.Dal.dll
+G:\_GIT\Atlant\Atlant.Bll\bin\Debug\Atlant.ViewModels.dll
+G:\_GIT\Atlant\Atlant.Bll\bin\Debug\AutoMapper.dll
+G:\_GIT\Atlant\Atlant.Bll\bin\Debug\EntityFramework.dll
+G:\_GIT\Atlant\Atlant.Bll\bin\Debug\EntityFramework.SqlServer.dll
+G:\_GIT\Atlant\Atlant.Bll\bin\Debug\Atlant.Dal.pdb
+G:\_GIT\Atlant\Atlant.Bll\bin\Debug\Atlant.ViewModels.pdb
+G:\_GIT\Atlant\Atlant.Bll\bin\Debug\AutoMapper.xml
+G:\_GIT\Atlant\Atlant.Bll\bin\Debug\EntityFramework.xml
+G:\_GIT\Atlant\Atlant.Bll\bin\Debug\EntityFramework.SqlServer.xml
+G:\_GIT\Atlant\Atlant.Bll\bin\Debug\ru\EntityFramework.resources.dll
+G:\_GIT\Atlant\Atlant.Bll\obj\Debug\Atlant.Bll.csprojResolveAssemblyReference.cache
+G:\_GIT\Atlant\Atlant.Bll\obj\Debug\Atlant.Bll.dll
+G:\_GIT\Atlant\Atlant.Bll\obj\Debug\Atlant.Bll.pdb

@@ -53,8 +53,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DetailRepositories.cs" />
     <Compile Include="Services.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StorekeeperRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

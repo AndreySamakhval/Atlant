@@ -1,0 +1,95 @@
+﻿@model Atlant.ViewModels.AddDetailViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+<script src="~/Scripts/Index.js"></script>
+<link href="~/Content/Index.css" rel="stylesheet" />
+
+<h2>Details</h2>
+<hr/>
+
+@*<p>
+    @Ajax.ActionLink("Add Detail", "ShowFormDetail", new AjaxOptions {UpdateTargetId= "divNewDetails" })
+</p>*@
+<div class="container" id="divSearch">
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8" id="containerDetails">
+            <table class="table table-bordered" id="tableDetails">
+                <tr class="table-bordered">
+                    <th>Номенклатурный код</th>
+                    <th>Наименование</th>
+                    <th>Количество</th>
+                    <th>Особоучитываемая</th>
+                    <th>Дата добовления</th>
+                    <th>Кладовщик</th>
+                    <th></th>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-4" id="divNewDetails">
+            <h4>Add New Detail</h4>
+            @using (Ajax.BeginForm("Post", new AjaxOptions { Url = "/api/detail", HttpMethod = "post" }))
+            {
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.ItemCode)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.ItemCode)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Name)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Name)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Amount)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Amount)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.DateAdded)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.DateAdded)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Storekeeper)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Storekeeper)
+                </div>
+                @Html.ValidationSummary()
+                <input type="submit" value="Add" />
+            }
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script id="addDetailsTmpl" type="text/x-jquery-tmpl">
+        <tr class="table-bordered" id="${Id}">
+            <td>${ItemCode}</td>
+            <td>${Name}</td>
+            <td>${Amount}</td>
+            <td>${SpecialConsideration}</td>
+            <td>${DateAdded}</td>
+            <td>${Storekeeper}</td>            
+            <td>@Ajax.ActionLink("Delete", "", new AjaxOptions { HttpMethod="DELETE", Url="/api/detail/"})</td>
+        </tr>
+</script>
+
+
