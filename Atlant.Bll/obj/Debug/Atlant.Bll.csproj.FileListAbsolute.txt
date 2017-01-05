@@ -15,3 +15,4 @@ G:\_GIT\Atlant\Atlant.Bll\bin\Debug\ru\EntityFramework.resources.dll
 G:\_GIT\Atlant\Atlant.Bll\obj\Debug\Atlant.Bll.csprojResolveAssemblyReference.cache
 G:\_GIT\Atlant\Atlant.Bll\obj\Debug\Atlant.Bll.dll
 G:\_GIT\Atlant\Atlant.Bll\obj\Debug\Atlant.Bll.pdb
+G:\_GIT\Atlant\Atlant.Bll\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
