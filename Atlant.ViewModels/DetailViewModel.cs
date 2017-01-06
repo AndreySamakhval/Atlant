@@ -25,8 +25,8 @@ namespace Atlant.ViewModels
         public bool SpecialConsideration { get; set; }
 
         [Display(Name = "Дата добовления")]
-        [DataType(DataType.Date)]
-        public DateTime DateAdded { get; set; }
+        //[DataType(DataType.Date)]
+        public string DateAdded { get; set; }
 
         [Display(Name = "Кладовщик")]
         public  string Storekeeper { get; set; }

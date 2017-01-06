@@ -19,8 +19,8 @@ namespace Atlant.ViewModels
         public string Name { get; set; }
 
         [Display(Name = "Количество деталей")]
-        [Required]
-        [Range(0,2147483646,ErrorMessage ="Недопустимое кол-во деталей")]
+        [Required(ErrorMessage = "Введите количество деталей")]
+        [Range(0,int.MaxValue,ErrorMessage ="Недопустимое кол-во деталей")]
         public int Amount { get; set; }
 
         [Display(Name = "Особоучитываемая")]
@@ -29,11 +29,32 @@ namespace Atlant.ViewModels
 
         [Display(Name = "Дата добавления")]
         [Required(ErrorMessage = "Выберите дату")]
-        [DataType(DataType.Date)]
+        [WeekendDate(ErrorMessage ="Дата не может быть выходным днем")]
+       // [DataType(DataType.Date)]
         public DateTime DateAdded { get; set; }
 
         [Display(Name = "Кладовщик")]
         [Required(ErrorMessage = "Выберите кладовщика")]
-        public string Storekeeper { get; set; }
+        public int Storekeeper { get; set; }
+
+
+        public class WeekendDateAttribute : RequiredAttribute
+        {
+            public override bool IsValid(object value)
+            {
+                if(base.IsValid(value))
+                {
+                    DateTime date = (DateTime)value;
+                    if (date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday)
+                        return true;
+                    else return false;
+                }
+
+                return false;
+            }
+
+        }
+
+
     }
 }

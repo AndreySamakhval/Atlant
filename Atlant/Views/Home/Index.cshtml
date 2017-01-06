@@ -17,67 +17,76 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-sm-8" id="containerDetails">
+        <div class="col-sm-7" id="containerDetails">
             <table class="table table-bordered" id="tableDetails">
                 <tr class="table-bordered">
                     <th>Номенклатурный код</th>
                     <th>Наименование</th>
                     <th>Количество</th>
-                    <th>Особоучитываемая</th>
+                    <th class="tdSc">Особоучитываемая</th>
                     <th>Дата добовления</th>
                     <th>Кладовщик</th>
                     <th></th>
                 </tr>
             </table>
         </div>
-        <div class="col-sm-4" id="divNewDetails">
-            <h4>Add New Detail</h4>
-            @using (Ajax.BeginForm("Post", new AjaxOptions { Url = "/api/detail", HttpMethod = "post" }))
-            {
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.ItemCode)
-                </div>
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.ItemCode)
-                </div>
+        <div class="col-sm-5" id="divAddDetail" >
+            <div id="divNewDetails">
+                <h4>Добавить новую деталь</h4>
+                <hr />
+                @using (Ajax.BeginForm("Post", new AjaxOptions { Url = "/api/detail", HttpMethod = "Post", OnSuccess = "details.getAll" }))
+                {
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ItemCode)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.ItemCode)
+                    </div>
 
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.Name)
-                </div>
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.Name)
-                </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Name)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Name)
+                    </div>
 
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.Amount)
-                </div>
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.Amount)
-                </div>
-                
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Amount)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Amount)
+                    </div>
+
                     <div class="editor-label">
                         @Html.LabelFor(model => model.SpecialConsideration)
                     </div>
                     <div class="editor-field">
                         @Html.EditorFor(model => model.SpecialConsideration)
+
                     </div>
 
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.DateAdded)
-                </div>
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.DateAdded)
-                </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.DateAdded)
 
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.Storekeeper)
-                </div>
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.Storekeeper)
-                </div>
-                @Html.ValidationSummary()
-                <input type="submit" value="Add" />
-            }
+                    </div>
+                    <div class="editor-field ui-widget">
+
+                        @Html.EditorFor(model => model.DateAdded)                       
+                        <span id="datePicker"></span>
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Storekeeper)
+                    </div>
+                    <div class="editor-field">
+                        <select class="form-control" id="selectStorekeeper" name="Storekeeper"></select>
+
+                    </div>
+                    @Html.ValidationSummary()
+                    <input type="submit" value="Добавить" />
+                }
+            </div>
+
         </div>
     </div>
 </div>
@@ -88,15 +97,19 @@
 
 
 <script id="addDetailsTmpl" type="text/x-jquery-tmpl">
-        <tr class="table-bordered" id="${Id}">
+        <tr class="table-bordered trTable" id="${Id}">
             <td>${ItemCode}</td>
             <td>${Name}</td>
             <td>${Amount}</td>
-            <td>${SpecialConsideration}</td>
+            <td class="tdSc" sc="${SpecialConsideration}">
+            </td>
             <td>${DateAdded}</td>
             <td>${Storekeeper}</td>            
-            <td>@Ajax.ActionLink("Delete", "", new AjaxOptions { HttpMethod="DELETE", Url="/api/detail/"})</td>
+            <td><a data-ajax="true" data-ajax-method="Delete" data-ajax-url="/api/detail/${Id}" href="/api/detail/${Id}">Удалить</a></td>
+            @*<td>@Ajax.ActionLink("Delete", "Detail/Delete", new AjaxOptions { HttpMethod="Delete", Url="/api/detail/" })</td>*@
         </tr>
 </script>
-
+<script id="addStorekeeperTmpl" type="text/x-jquery-tmpl">
+    <option value=${Id}>${Name}</option>
+</script>
 

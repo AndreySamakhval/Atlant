@@ -32,8 +32,8 @@ namespace Atlant.Controllers.Api
             if (detail == null)
                 return BadRequest();
 
-            if ((int)detail.DateAdded.DayOfWeek == 6 || (int)detail.DateAdded.DayOfWeek == 7)
-                ModelState.AddModelError("detail.DateAdded", "День не может быть выходным");
+            if (detail.DateAdded.DayOfWeek == DayOfWeek.Saturday || detail.DateAdded.DayOfWeek == DayOfWeek.Sunday)
+                ModelState.AddModelError("", "День не может быть выходным");
 
             if (ModelState.IsValid)
             {

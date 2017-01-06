@@ -1,2 +1,26 @@
 ﻿body {
 }
+#containerDetails{
+    margin:5px;
+    display:block;
+    width:auto!important;
+}
+#tableDetails{
+    width:auto;
+    background-color:whitesmoke;
+}
+#divNewDetails{
+    display:block;
+    width:auto;
+    margin:5px;
+   
+}
+.tdSc{
+    width:50px !important;
+}
+#divAddDetail{
+    display:block;
+    border:ridge;
+    width:auto;
+    background-color:whitesmoke;
+}
