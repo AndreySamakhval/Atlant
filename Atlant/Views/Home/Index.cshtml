@@ -3,10 +3,22 @@
 @{
     ViewBag.Title = "Index";
 }
-<script src="~/Scripts/Index.js"></script>
 <link href="~/Content/Index.css" rel="stylesheet" />
+<script src="~/Scripts/Index.js"></script>
+
 
 <h2>Детали</h2>
+<div>
+    <form class="form-inline" data-ajax="true" role="form">
+        <div class="form-group">
+            <label class="sr-only" for="inputSearch">Code</label>
+            <input type="text" class="form-control" id="inputSearch" placeholder="Введите номенкл. код" />
+        </div>
+        <button type="submit" class="btn btn-default" id="btnSearch">Найти</button>
+        <p id="errorSearch" class="text-danger"></p>
+    </form>
+    <button type="button" class="btn btn-info" id="btnclearResult" style="display:none;">Очистить результаты поиска</button>
+</div>
 <hr/>
 
 @*<p>
@@ -18,6 +30,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-7" id="containerDetails">
+            
             <table class="table table-bordered" id="tableDetails">
                 <tr class="table-bordered">
                     <th>Номенклатурный код</th>
@@ -83,7 +96,7 @@
 
                     </div>
                     @Html.ValidationSummary()
-                    <input type="submit" value="Добавить" />
+                    <input type="submit" class="btn btn-default" value="Добавить" />
                 }
             </div>
 
@@ -101,11 +114,11 @@
             <td>${ItemCode}</td>
             <td>${Name}</td>
             <td>${Amount}</td>
-            <td class="tdSc" sc="${SpecialConsideration}">
+            <td class="tdSc text-center" sc="${SpecialConsideration}">
             </td>
             <td>${DateAdded}</td>
             <td>${Storekeeper}</td>            
-            <td><a data-ajax="true" data-ajax-method="Delete" data-ajax-url="/api/detail/${Id}" href="/api/detail/${Id}">Удалить</a></td>
+            <td><a data-ajax="true" class="linkDelete" id="${Id}"  href="">Удалить</a></td>
             @*<td>@Ajax.ActionLink("Delete", "Detail/Delete", new AjaxOptions { HttpMethod="Delete", Url="/api/detail/" })</td>*@
         </tr>
 </script>

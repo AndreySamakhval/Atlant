@@ -9,7 +9,8 @@ namespace Atlant.ViewModels
 {
     public class NewStorekeeperViewModel
     {
-        [Required]
+        [Display(Name = "Фамилия")]
+        [Required(ErrorMessage ="Введите фамилию кладовщика")]
         public string Name { get; set; }
     }
 }

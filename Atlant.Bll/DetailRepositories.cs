@@ -15,6 +15,7 @@ namespace Atlant.Bll
         void Create(Detail detail);
         void Delete(int id);
         int CountDetails(int storekeeperId);
+        IEnumerable<Detail> Search(string value);
     }
 
     public class DetailRepository : IDetailRepository
@@ -50,7 +51,7 @@ namespace Atlant.Bll
 
         public IEnumerable<Detail> GetAll()
         {
-            return db.Details.ToList();
+            return db.Details;
         }
 
         public int CountDetails(int storekeeperId)
@@ -64,6 +65,11 @@ namespace Atlant.Bll
             }
 
             return count;
+        }
+
+        public IEnumerable<Detail> Search(string value)
+        {
+            return db.Details.Where(x => x.ItemCode.Contains(value));
         }
     }
 }

@@ -138,6 +138,7 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Index.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\Storekeepers.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -301,6 +302,7 @@
     <Content Include="Scripts\moment-with-locales.min.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\Storekeepers.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -323,6 +325,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\ShowFormDetail.cshtml" />
+    <Content Include="Views\Home\Storekeepers.cshtml" />
+    <Content Include="Views\Home\NewStorekeepers.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

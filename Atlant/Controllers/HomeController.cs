@@ -1,4 +1,5 @@
 ﻿using Atlant.Bll;
+using Atlant.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,16 +16,43 @@ namespace Atlant.Controllers
         {
             _service = service;
         }
-        // GET: Home
+
+        
         public ActionResult Index()
-        {
-            
+        {            
             return View();
         }
 
-        public ActionResult ShowFormDetail()
+        public ActionResult Storekeepers()
+        {
+            return View();
+        }
+
+        public ActionResult NewStorekeepers()
         {
             return PartialView();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult NewStorekeepers(NewStorekeeperViewModel nStor)
+        {
+            if (ModelState.IsValid)
+            {
+                _service.AddStorekeeper(nStor);
+                return View();
+            }
+            return PartialView(nStor);
+        }
+
+
+        [HttpPost]
+        public JsonResult Search(string codeSearch)
+        {
+            var result = _service.SearchDetails(codeSearch);
+            if (result != null)
+                return Json(result);
+            else return null;
         }
             
     }

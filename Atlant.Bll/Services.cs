@@ -20,6 +20,7 @@ namespace Atlant.Bll
         DetailViewModel GetDetail(int id);
         void DeleteDetail(int id);
         void AddDetail(AddDetailViewModel detail);
+        List<DetailViewModel> SearchDetails(string itemCode);
     }
 
     public class AtlantService : IAtlantService, IDisposable
@@ -127,6 +128,15 @@ namespace Atlant.Bll
             detailRepository.Create(newDetail);
 
         }
+
+       public  List<DetailViewModel> SearchDetails(string itemCode)
+        {
+            Mapper.Initialize(cfg => cfg.CreateMap<Detail, DetailViewModel>()
+            .ForMember("Storekeeper", c => c.MapFrom(x => x.Storekeeper.Name))
+            .ForMember("DateAdded", c => c.MapFrom(x => x.DateAdded.ToShortDateString())));
+            return Mapper.Map<IEnumerable<Detail>, List<DetailViewModel>>(detailRepository.Search(itemCode));
+        }
+
 
 
 

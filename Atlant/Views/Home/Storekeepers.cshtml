@@ -1,0 +1,58 @@
+﻿@model Atlant.ViewModels.NewStorekeeperViewModel
+@{
+    ViewBag.Title = "Storekeerers";
+}
+
+<link href="~/Content/Storekeepers.css" rel="stylesheet" />
+<script src="~/Scripts/Storekeepers.js"></script>
+
+<h2>Кладовщики</h2>
+<hr/>
+<button type="button" class="btn btn-info" id="btnAddStorekeeper">Добавить кладовщика</button>
+<div class="container" id="divStorekeepers">
+    <table class="table table-bordered table-striped" id="tableStore">
+        <tr>
+            <th>ID</th>
+            <th>Фамилия</th>
+            <th>Кол-во деталей</th>
+            <th></th>
+        </tr>
+    </table>     
+</div>
+
+<div id="modDialog" class="modal fade">
+    <div class="modal-dialog">
+        <div id="dialogContent" class="modal-content" style="margin:10px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Добавление кладовщика</h4>
+            </div>
+            <div class="modal-body" style="margin:25px;">
+                @using (Ajax.BeginForm(new AjaxOptions { Url = "/api/storekeeper", HttpMethod = "Post", OnSuccess= "storekeeper.get" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="row">
+                        @Html.LabelFor(model => model.Name)
+                        <p>@Html.EditorFor(model => model.Name)</p>
+                    </div>
+                    @Html.ValidationSummary()
+                    <p><input type="submit" value="Добавить" /></p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script id="addStorekeeperTmpl" type="text/x-jquery-tmpl">
+    <tr class="table-bordered trTable">
+        <td>${Id}</td>
+        <td style="width:400px;">${Name}</td>
+        <td style="width:200px;">${AmountDetails}</td>
+        <td style="width:200px;">
+            {{if (AmountDetails == 0)}}
+        <a data-ajax="true" data-ajax-confirm="Удалить кладовщика ${Name}?" amountDt="${AmountDetails}" class="linkDelete" id="${Id}" href="">Удалить</a>
+            {{/if}}
+        </td>       
+    </tr>
+</script>

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Mvc;
 
 namespace Atlant.Controllers.Api
 {
@@ -27,6 +28,7 @@ namespace Atlant.Controllers.Api
         }
 
         // POST: api/Detail
+        [ValidateAntiForgeryToken]
         public IHttpActionResult Post([FromBody]AddDetailViewModel detail)
         {
             if (detail == null)
@@ -44,9 +46,14 @@ namespace Atlant.Controllers.Api
         }        
 
         // DELETE: api/Detail/5
-        public void Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
-            _service.DeleteDetail(id);
+            if (id != 0)
+            {
+                _service.DeleteDetail(id);
+                return Ok();
+            }
+            else return BadRequest();
         }
     }
 }
