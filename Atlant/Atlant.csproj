@@ -324,9 +324,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\ShowFormDetail.cshtml" />
     <Content Include="Views\Home\Storekeepers.cshtml" />
-    <Content Include="Views\Home\NewStorekeepers.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

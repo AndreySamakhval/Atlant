@@ -52,9 +52,7 @@ namespace Atlant.ViewModels
 
                 return false;
             }
-
         }
-
 
     }
 }

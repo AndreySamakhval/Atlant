@@ -8,6 +8,8 @@ using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
 using Atlant.Dependency;
+using Microsoft.Practices.Unity;
+using Atlant.Bll;
 
 namespace Atlant
 {
@@ -20,7 +22,13 @@ namespace Atlant
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            DependencyResolver.SetResolver(new AtlantDependencyResolver());          
+            IUnityContainer container = new UnityContainer();
+            container.RegisterType<IAtlantService, AtlantService>();
+            container.RegisterType<IDetailRepository, DetailRepository>();
+            container.RegisterType<IStorekeeperRepository, StorekeeperRepository>();
+
+            DependencyResolver.SetResolver(new AtlantDependencyResolver(container));
+            GlobalConfiguration.Configuration.DependencyResolver = new AtlantApiDependencyResolver(container);      
         }
     }
 }

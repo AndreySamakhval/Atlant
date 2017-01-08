@@ -12,22 +12,23 @@ namespace Atlant.Controllers.Api
 {
     public class DetailController : ApiController
     {
-        AtlantService _service = new AtlantService();
+        IAtlantService _service;
 
-
-        // GET: api/Detail        
+        public DetailController(IAtlantService service)
+        {
+            _service = service;
+        }
+              
         public IEnumerable<DetailViewModel> Get()
         {
             return _service.GetDetails();
         }
-
-        // GET: api/Detail/5
+        
         public DetailViewModel Get(int id)
         {
             return _service.GetDetail(id);
         }
-
-        // POST: api/Detail
+        
         [ValidateAntiForgeryToken]
         public IHttpActionResult Post([FromBody]AddDetailViewModel detail)
         {
@@ -45,7 +46,6 @@ namespace Atlant.Controllers.Api
             else return BadRequest(ModelState);
         }        
 
-        // DELETE: api/Detail/5
         public IHttpActionResult Delete(int id)
         {
             if (id != 0)

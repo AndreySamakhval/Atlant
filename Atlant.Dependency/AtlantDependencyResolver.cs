@@ -13,11 +13,10 @@ namespace Atlant.Dependency
     {
         readonly IUnityContainer _container;
 
-        public AtlantDependencyResolver()
+        public AtlantDependencyResolver(IUnityContainer container)
         {
-            _container = new UnityContainer();
-            _container.RegisterType<IAtlantService, AtlantService>();
-           // _container.RegisterType<IContext, Context>();
+            _container = container;
+           
         }
 
         public object GetService(Type serviceType)
@@ -44,4 +43,5 @@ namespace Atlant.Dependency
             }
         }
     }
+
 }

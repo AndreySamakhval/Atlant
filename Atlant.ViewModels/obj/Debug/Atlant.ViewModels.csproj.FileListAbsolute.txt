@@ -1,5 +1,4 @@
 G:\_GIT\Atlant\Atlant.ViewModels\bin\Debug\Atlant.ViewModels.dll
 G:\_GIT\Atlant\Atlant.ViewModels\bin\Debug\Atlant.ViewModels.pdb
-G:\_GIT\Atlant\Atlant.ViewModels\obj\Debug\Atlant.ViewModels.csprojResolveAssemblyReference.cache
 G:\_GIT\Atlant\Atlant.ViewModels\obj\Debug\Atlant.ViewModels.dll
 G:\_GIT\Atlant\Atlant.ViewModels\obj\Debug\Atlant.ViewModels.pdb

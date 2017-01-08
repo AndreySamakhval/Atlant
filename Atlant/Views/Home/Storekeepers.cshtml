@@ -8,7 +8,7 @@
 
 <h2>Кладовщики</h2>
 <hr/>
-<button type="button" class="btn btn-info" id="btnAddStorekeeper">Добавить кладовщика</button>
+<button type="button" class="btn btn-info" id="btnAddStorekeeper" style="margin:20px;">Добавить кладовщика</button>
 <div class="container" id="divStorekeepers">
     <table class="table table-bordered table-striped" id="tableStore">
         <tr>
@@ -43,7 +43,6 @@
     </div>
 </div>
 
-
 <script id="addStorekeeperTmpl" type="text/x-jquery-tmpl">
     <tr class="table-bordered trTable">
         <td>${Id}</td>
@@ -51,7 +50,7 @@
         <td style="width:200px;">${AmountDetails}</td>
         <td style="width:200px;">
             {{if (AmountDetails == 0)}}
-        <a data-ajax="true" data-ajax-confirm="Удалить кладовщика ${Name}?" amountDt="${AmountDetails}" class="linkDelete" id="${Id}" href="">Удалить</a>
+        <a data-ajax="true" data-ajax-confirm="Удалить кладовщика ${Name}?" class="linkDelete" id="${Id}" href="">Удалить</a>
             {{/if}}
         </td>       
     </tr>

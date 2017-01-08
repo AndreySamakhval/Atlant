@@ -16,8 +16,7 @@ namespace Atlant.Controllers
         {
             _service = service;
         }
-
-        
+                
         public ActionResult Index()
         {            
             return View();
@@ -28,24 +27,6 @@ namespace Atlant.Controllers
             return View();
         }
 
-        public ActionResult NewStorekeepers()
-        {
-            return PartialView();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult NewStorekeepers(NewStorekeeperViewModel nStor)
-        {
-            if (ModelState.IsValid)
-            {
-                _service.AddStorekeeper(nStor);
-                return View();
-            }
-            return PartialView(nStor);
-        }
-
-
         [HttpPost]
         public JsonResult Search(string codeSearch)
         {
@@ -53,7 +34,6 @@ namespace Atlant.Controllers
             if (result != null)
                 return Json(result);
             else return null;
-        }
-            
+        }            
     }
 }

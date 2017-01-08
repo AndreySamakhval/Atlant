@@ -25,9 +25,6 @@ namespace Atlant.Bll
             this.db = context;
         }
 
-
-
-
         public void Create(Storekeeper stopkeeper)
         {
             db.Storekeepers.Add(stopkeeper);

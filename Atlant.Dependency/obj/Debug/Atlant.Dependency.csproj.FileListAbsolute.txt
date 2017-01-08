@@ -26,3 +26,6 @@ G:\_GIT\Atlant\Atlant.Dependency\bin\Debug\ru\EntityFramework.resources.dll
 G:\_GIT\Atlant\Atlant.Dependency\obj\Debug\Atlant.Dependency.csprojResolveAssemblyReference.cache
 G:\_GIT\Atlant\Atlant.Dependency\obj\Debug\Atlant.Dependency.dll
 G:\_GIT\Atlant\Atlant.Dependency\obj\Debug\Atlant.Dependency.pdb
+G:\_GIT\Atlant\Atlant.Dependency\bin\Debug\System.Web.Http.dll
+G:\_GIT\Atlant\Atlant.Dependency\bin\Debug\System.Web.Http.xml
+G:\_GIT\Atlant\Atlant.Dependency\bin\Debug\ru\System.Web.Http.resources.dll

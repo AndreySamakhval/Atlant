@@ -27,7 +27,6 @@ namespace Atlant.Bll
             this.db = context;
         }
 
-
         public void Create(Detail detail)
         {
             db.Details.Add(detail);

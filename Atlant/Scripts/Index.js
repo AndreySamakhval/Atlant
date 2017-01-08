@@ -6,23 +6,17 @@
     $('#btnSearch').click(function () {
         details.search();
     })
-
     Storekeeper.Get();
-
 });
-
-
 
 details = {
     getAll: function () {
-
         $.ajax({
             type: 'GET',
             url: '/api/Detail',           
             asynch: false,
             success: function (output, status, xhr) {
-                details.rennderDetails(output);
-               
+                details.rennderDetails(output);               
             },
             error: function () {
                 alert('Error getting details');

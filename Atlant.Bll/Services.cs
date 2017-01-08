@@ -3,6 +3,7 @@ using Atlant.ViewModels;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,36 +27,14 @@ namespace Atlant.Bll
     public class AtlantService : IAtlantService, IDisposable
     {
         private AtlantContext db = new AtlantContext();
-        private DetailRepository detailRepository;
-        private StorekeeperRepository storekeeperRepository;
+        private IDetailRepository detailRepository;
+        private IStorekeeperRepository storekeeperRepository;
 
-        public AtlantService(): base()
+        public AtlantService(IDetailRepository dRepo, IStorekeeperRepository sRepo) /*: base()*/
         {
-            detailRepository = new DetailRepository(db);
-            storekeeperRepository = new StorekeeperRepository(db);
+            detailRepository = dRepo;
+            storekeeperRepository = sRepo;            
         }
-        //поменять через конструктор
-        //public DetailRepository Details
-        //{
-        //    get
-        //    {
-        //        if (detailRepository == null)
-        //            detailRepository = new DetailRepository(db);
-        //        return detailRepository;
-        //    }
-        //}
-        ////поменять через конструктор
-        //public StorekeeperRepository Storekeepers
-        //{
-        //    get
-        //    {
-        //        if (storekeeperRepository == null)
-        //            storekeeperRepository = new StorekeeperRepository(db);
-        //        return storekeeperRepository;
-        //    }
-        //}
-
-
 
         public void AddStorekeeper(NewStorekeeperViewModel newStorekeeper)
         {
@@ -70,11 +49,11 @@ namespace Atlant.Bll
             {
                 storekeeperRepository.Delete(id);
             }
-            ///////////else!!!!!!!!!!!
+            ///////////else
         }
 
         public StorekeeperViewModel GetStorekeeper(int id)
-        {            
+        {
             Mapper.Initialize(cfg => cfg.CreateMap<Storekeeper, StorekeeperViewModel>());
             return Mapper.Map<Storekeeper, StorekeeperViewModel>(storekeeperRepository.Get(id));
         }
@@ -86,12 +65,12 @@ namespace Atlant.Bll
         }
 
         public List<StorekeeperViewModel> GetStorekeepers2()
-        {            
+        {
             Mapper.Initialize(cfg => cfg.CreateMap<Storekeeper, StorekeeperViewModel>()
-            .ForMember("AmountDetails", c=>c.Ignore()));
+                .ForMember("AmountDetails", c => c.Ignore()));
             var stopkeepers = Mapper.Map<IEnumerable<Storekeeper>, List<StorekeeperViewModel>>(storekeeperRepository.GetAll());
 
-            foreach(var item in stopkeepers)
+            foreach (var item in stopkeepers)
             {
                 item.AmountDetails = detailRepository.CountDetails(item.Id).ToString();
             }
@@ -101,8 +80,8 @@ namespace Atlant.Bll
         public IEnumerable<DetailViewModel> GetDetails()
         {
             Mapper.Initialize(cfg => cfg.CreateMap<Detail, DetailViewModel>()
-            .ForMember("Storekeeper", c => c.MapFrom(x=>x.Storekeeper.Name))
-            .ForMember("DateAdded", c=>c.MapFrom(x=>x.DateAdded.ToShortDateString())));            
+                  .ForMember("Storekeeper", c => c.MapFrom(x => x.Storekeeper.Name))
+                  .ForMember("DateAdded", c => c.MapFrom(x => x.DateAdded.ToShortDateString())));
             return Mapper.Map<IEnumerable<Detail>, IEnumerable<DetailViewModel>>(detailRepository.GetAll());
         }
 
@@ -119,29 +98,24 @@ namespace Atlant.Bll
 
         public void AddDetail(AddDetailViewModel detail)
         {
-            
             var sk = storekeeperRepository.Get(detail.Storekeeper);
+
             Mapper.Initialize(cfg => cfg.CreateMap<AddDetailViewModel, Detail>()
-            .ForMember("Storekeeper", c=>c.UseValue(sk))
+                .ForMember("Storekeeper", c => c.UseValue(sk))
             );
             Detail newDetail = Mapper.Map<AddDetailViewModel, Detail>(detail);
             detailRepository.Create(newDetail);
 
         }
 
-       public  List<DetailViewModel> SearchDetails(string itemCode)
+        public List<DetailViewModel> SearchDetails(string itemCode)
         {
             Mapper.Initialize(cfg => cfg.CreateMap<Detail, DetailViewModel>()
             .ForMember("Storekeeper", c => c.MapFrom(x => x.Storekeeper.Name))
             .ForMember("DateAdded", c => c.MapFrom(x => x.DateAdded.ToShortDateString())));
             return Mapper.Map<IEnumerable<Detail>, List<DetailViewModel>>(detailRepository.Search(itemCode));
         }
-
-
-
-
-
-
+        
         private bool disposed = false;
         public virtual void Dispose(bool disposing)
         {

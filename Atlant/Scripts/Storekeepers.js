@@ -1,10 +1,8 @@
 ﻿$(document).ready(function () {
-
     $('#btnAddStorekeeper').click(function () {
         $('#modDialog').modal('show');
     });
     storekeeper.get();
-
 });
 
 storekeeper = {
@@ -21,15 +19,11 @@ storekeeper = {
                 alert('Error deleting details');
             }
         });
-
     },
     rennder: function (output) {        
         $('.trTable').remove();
         $('#addStorekeeperTmpl').tmpl(output).appendTo('#tableStore');
         $('.linkDelete').click(function () {
-            if ($(this).attr('amountDt') == 0) {
-
-            }
             storekeeper.deleteStore($(this).attr('id'))
         })
     },
